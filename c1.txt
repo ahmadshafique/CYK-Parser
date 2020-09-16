@@ -1,0 +1,11 @@
+ALPHABET:
+a, b ;
+VARIABLES:
+S, A, B ; 
+PRODUCTIONS:
+S->AB
+S->BC
+A->BA
+A->a
+B->CC|b
+C->AB|a
