@@ -3,6 +3,7 @@
 #include<fstream>
 #include<set>
 #include<algorithm>
+#include<cctype>
 using namespace std;
 
 #define MAX 100
@@ -52,6 +53,11 @@ int main(int argc, char** argv)
 	char buff[100];
 	np = 0;
 	bool prod_found=false;
+
+	if (argv[1] == nullptr || argv[2] == nullptr) {
+		cout << "Input arguments missing...EXITING";
+		return 1;
+	}		
 	
 	//ifstream ifile("/Users/ahmad/source/repos/CYKparser/CYKparser/f1.txt");
 	ifstream ifile(argv[1]);
@@ -76,7 +82,7 @@ int main(int argc, char** argv)
 
 	while (ifile.getline(buff, 99)) {
 		a = buff;
-		a.erase(remove_if(a.begin(), a.end(), isspace), a.end());
+		a.erase(remove_if(a.begin(), a.end(), ::isspace), a.end());
 		a.erase(remove(a.begin(), a.end(), ';'), a.end());
 		pt = a.find("->");
 
